@@ -1,15 +1,19 @@
 import { FC } from 'react';
 
-import { CustomShowButton } from './components/CustomButton/CustomButton';
-import { CustomSelect } from './components/CustomSelect/CustomSelect';
-import { InputDebounce } from './components/InputDebounce/InputDebounce';
+import { BrowserRouter } from 'react-router-dom';
+
+import { Header } from './components/Header/Header';
+import { SideBar } from './pages/SideBar/SideBar';
+import { Pages } from './routing/Pages';
 
 export const App: FC = () => {
   return (
-    <>
-      <CustomShowButton />
-      <InputDebounce />
-      <CustomSelect />
-    </>
+    <BrowserRouter>
+      <Header />
+      <div className="main">
+        <SideBar />
+        <Pages />
+      </div>
+    </BrowserRouter>
   );
 };
