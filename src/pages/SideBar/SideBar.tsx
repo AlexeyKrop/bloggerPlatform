@@ -16,17 +16,23 @@ type SideBarItemsType = {
   id: string;
   title: string;
   icon: ReactNode;
+  active: boolean;
 };
 const drawerWidth = 252;
-const sideBarItems: SideBarItemsType[] = [
-  { id: v1(), title: 'Blogs', icon: <ListIcon className={s.icon} /> },
-  { id: v1(), title: 'Posts', icon: <AppsIcon className={s.icon} /> },
-];
 
 export const SideBar: FC = () => {
-  const [active, setActive] = useState<boolean>(false);
-  const onChangeToggleClass: () => void = () => {
-    setActive(!active);
+  const [sideBarItems, setSideBarItems] = useState<SideBarItemsType[]>([
+    { id: v1(), title: 'Blogs', icon: <ListIcon className={s.icon} />, active: true },
+    { id: v1(), title: 'Posts', icon: <AppsIcon className={s.icon} />, active: false },
+  ]);
+  const onChangeToggleClass: (id: string) => void = id => {
+    setSideBarItems(
+      sideBarItems.map(sideBarItem =>
+        sideBarItem.id === id
+          ? { ...sideBarItem, active: true }
+          : { ...sideBarItem, active: false },
+      ),
+    );
   };
 
   return (
@@ -44,12 +50,13 @@ export const SideBar: FC = () => {
         anchor="left"
       >
         <List>
-          {sideBarItems.map(({ id, title, icon }) => (
-            <ListItem className={s.item} key={id} disablePadding>
-              <ListItemButton
-                onClick={onChangeToggleClass}
-                className={active ? `${s.btnActive}` : `${s.btn}`}
-              >
+          {sideBarItems.map(({ id, title, icon, active }) => (
+            <ListItem
+              className={active ? `${s.itemActive}` : `${s.item}`}
+              key={id}
+              disablePadding
+            >
+              <ListItemButton className={s.btn} onClick={() => onChangeToggleClass(id)}>
                 {icon}
                 {title}
               </ListItemButton>

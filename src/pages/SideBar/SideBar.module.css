@@ -4,5 +4,8 @@
     justify-content: center;
 }
 .itemActive{
-    color: green;
+    border-right: 2px solid #F8346B;
+}
+.itemActive .btn{
+    color: #F8346B;
 }
