@@ -6,9 +6,23 @@
     font-size: 14px;
 }
 
+.main {
+    min-height: 100vh;
+    background-color: #F3F3F3;
+}
+
 .content {
-    padding-top: 29px;
+    padding-top: 90px;
+    padding-bottom: 40px;
     width: 100%;
     max-width: 940px;
     margin: 0 auto;
+}
+
+.headerWrapper {
+    width: 100%;
+    max-width: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

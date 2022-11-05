@@ -12,7 +12,7 @@ export const Header: FC = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <ThemeProvider theme={lightTheme}>
-        <AppBar position="static">
+        <AppBar position="fixed">
           <Toolbar>
             <h2 className={s.title}>Blogger Platform</h2>
           </Toolbar>

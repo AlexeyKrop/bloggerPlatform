@@ -1,0 +1,13 @@
+.link {
+    text-decoration: none;
+    width: 100%;
+    max-width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #1A1718;
+}
+
+.link:hover {
+    color: #695b64
+}

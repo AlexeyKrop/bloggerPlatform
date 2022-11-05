@@ -1,44 +1,29 @@
 import React, { FC } from 'react';
 
-import { Blog } from '../components/Blog/Blog';
-import { CustomShowButton } from '../components/CustomButton/CustomButton';
-import { FilterBlock } from '../components/FilterBlock/FilterBlock';
-import { Line } from '../components/Line/Line';
+import { Route, Routes } from 'react-router-dom';
+
+import { CurrentBlog } from '../components/Blog/CurrentBlog/CurrentBlog';
+import { Blogs } from '../pages/Blogs/Blogs';
+
+export const PATH = {
+  BLOGS: '/blogs',
+  BLOG: '/blog',
+  POSTS: '/posts',
+  POST: '/post',
+};
+
+const ROUTES = [
+  { path: PATH.BLOGS, element: <Blogs /> },
+  { path: '/', element: <Blogs /> },
+  { path: PATH.BLOG, element: <CurrentBlog /> },
+];
 
 export const Pages: FC = () => {
   return (
-    <>
-      <h2>Blogs</h2>
-      <Line />
-      <FilterBlock />
-      <Blog
-        title="The best blog in our village"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor "
-      />
-      <Line />
-      <Blog
-        title="The best blog in our village"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor "
-      />
-      <Line />
-      <Blog
-        title="The best blog in our village"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor "
-      />
-      <Line />
-      <Blog
-        title="The best blog in our village"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor "
-      />
-      <Line />
-      <Blog
-        title="The best blog in our village"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor "
-      />
-      <Line />
-      <div style={{ textAlign: 'center' }}>
-        <CustomShowButton />
-      </div>
-    </>
+    <Routes>
+      {ROUTES.map(({ path, element }) => (
+        <Route key={path} path={path} element={element} />
+      ))}
+    </Routes>
   );
 };
