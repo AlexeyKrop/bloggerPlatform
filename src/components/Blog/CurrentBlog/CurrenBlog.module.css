@@ -5,9 +5,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 12px;
     color: #1A1718;
 }
 
+.image{
+    width: 1028px;
+    height: 320px;
+    object-fit: cover;
+}
 .link:hover {
     color: #695b64
 }
