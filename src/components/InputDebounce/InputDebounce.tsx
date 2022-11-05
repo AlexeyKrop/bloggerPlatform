@@ -8,6 +8,7 @@ import { CssTextField } from './InputDebounceStyle';
 export const InputDebounce: FC = () => {
   return (
     <CssTextField
+      placeholder="Search"
       startAdornment={
         <InputAdornment position="start">
           <SearchIcon />

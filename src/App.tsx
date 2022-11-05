@@ -10,9 +10,11 @@ export const App: FC = () => {
   return (
     <BrowserRouter>
       <Header />
+      <SideBar />
       <div className="main">
-        <SideBar />
-        <Pages />
+        <div className="content">
+          <Pages />
+        </div>
       </div>
     </BrowserRouter>
   );

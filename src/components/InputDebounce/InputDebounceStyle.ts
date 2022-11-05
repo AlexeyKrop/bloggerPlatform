@@ -4,7 +4,7 @@ export const CssTextField = styled(OutlinedInput)({
   width: '100%',
   maxWidth: '672px',
   height: '36px',
-  borderRadius: '2px',
+  borderRadius: '4px',
   '&:hover': {
     borderColor: '#2c2729',
     boxShadow: 'none',
