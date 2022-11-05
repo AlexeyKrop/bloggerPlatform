@@ -44,14 +44,19 @@ export const SideBar: FC = () => {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             top: '80px',
+            paddingTop: '43px',
+            paddingLeft: '12px',
           },
         }}
         variant="permanent"
         anchor="left"
       >
-        <List>
+        <List className={s.list}>
           {sideBarItems.map(({ id, title, icon, active }) => (
             <ListItem
+              sx={{
+                marginBottom: '24px',
+              }}
               className={active ? `${s.itemActive}` : `${s.item}`}
               key={id}
               disablePadding

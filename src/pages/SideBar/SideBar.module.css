@@ -1,11 +1,8 @@
-.item{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.itemActive{
+
+.itemActive {
     border-right: 2px solid #F8346B;
 }
-.itemActive .btn{
+
+.itemActive .btn {
     color: #F8346B;
 }
