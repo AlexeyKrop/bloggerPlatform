@@ -33,5 +33,7 @@ export const setBlogsTC = (): AppThunk => (dispatch, getState) => {
       pageNumber: '1',
       searchNameTerm: '',
     })
-    .then(res => console.log(res.data.items));
+    .then(res => {
+      dispatch(setBlogs({ blogs: res.data.items }));
+    });
 };
