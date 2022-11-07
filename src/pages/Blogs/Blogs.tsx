@@ -1,17 +1,18 @@
 import React, { FC, useEffect } from 'react';
 
-import { blogsAPI } from '../../api/blogs/blogs';
 import { Blog } from '../../components/Blog/Blog';
 import { CustomShowButton } from '../../components/CustomButton/CustomButton';
 import { FilterBlock } from '../../components/FilterBlock/FilterBlock';
 import { Line } from '../../components/Line/Line';
+import { useAppDispatch } from '../../hooks/useAppDispatch/useAppDispatch';
+import { setBlogsTC } from '../../store/reducers/bloggsReducer';
 
 export const Blogs: FC = () => {
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
-    blogsAPI
-      .getAllBlogs({ pageNumber: '1', pageSize: '1', searchNameTerm: '' })
-      .then(res => console.log(res));
-  }, []);
+    dispatch(setBlogsTC());
+  });
 
   return (
     <>
