@@ -4,8 +4,10 @@ import { instance } from '../config';
 import { BlogsResponseType, ParamsBlogsType } from '../types';
 
 export const blogsAPI = {
-  getAllBlogs() {
-    return instance.get<AxiosResponse<BlogsResponseType[]>>(`blogs`);
+  getAllBlogs(params: ParamsBlogsType) {
+    return instance.get<AxiosResponse<BlogsResponseType[]>>(`bloggers`, {
+      params,
+    });
   },
   createNewBlog(data: ParamsBlogsType) {
     return instance.post<ParamsBlogsType, AxiosResponse<BlogsResponseType[]>>(
