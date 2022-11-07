@@ -7,9 +7,11 @@ import {
 import thunkMiddleware from 'redux-thunk';
 
 import { blogsReducer } from './reducers/blogsReducer';
+import { postsReducer } from './reducers/postsReducer';
 
 const rootReducer = combineReducers({
   blogs: blogsReducer,
+  posts: postsReducer,
 });
 
 export const store = configureStore({

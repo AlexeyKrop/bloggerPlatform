@@ -1,18 +1,26 @@
 import React, { FC, useEffect } from 'react';
 
-import { postsAPI } from '../../api/posts/posts';
 import { Post } from '../../components/Post/Post';
+import { useAppDispatch } from '../../hooks/useAppDispatch/useAppDispatch';
+import { useAppSelector } from '../../hooks/useAppSelector/useAppSelector';
+import { setPostsTC } from '../../store/reducers/postsReducer';
+import { selectPosts } from '../../store/selectors/selectPosts/selectPosts';
 
 export const Posts: FC = () => {
+  const dispatch = useAppDispatch();
+  const posts = useAppSelector(selectPosts);
+
   useEffect(() => {
-    postsAPI
-      .getAllPosts({ pageNumber: '1', pageSize: '4' })
-      .then(res => console.log(res.data));
-  }, []);
+    dispatch(setPostsTC());
+  }, [dispatch]);
 
   return (
     <div>
-      <Post />
+      {posts.map(post => (
+        <div key={post.id}>
+          <Post post={post} />
+        </div>
+      ))}
     </div>
   );
 };

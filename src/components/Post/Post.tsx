@@ -1,8 +1,12 @@
 import React, { FC } from 'react';
 
+import { PostType } from '../../store/reducers/types';
 import { DropDownMenu } from '../DropDownMenu/DropDownMenu';
 
-export const Post: FC = () => {
+type PostPropsType = {
+  post: PostType;
+};
+export const Post: FC<PostPropsType> = ({ post }) => {
   return (
     <div>
       <img src="" alt="" />
@@ -10,9 +14,10 @@ export const Post: FC = () => {
         <div>
           <img src="" alt="" />
           <div>
-            <span>Lets fly into space</span>
-            <span>The best blog in our village</span>
-            <span>12.12.2022</span>
+            <p>{post.title}</p>
+            <p>{post.shortDescription}</p>
+            <p>{post.addedAt}</p>
+            <p>{post.content}</p>
           </div>
           <DropDownMenu />
         </div>

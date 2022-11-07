@@ -20,12 +20,13 @@ export const Blogs: FC = () => {
   return (
     <>
       <FilterBlock />
-      {blogs.map(({ id, name, youtubeUrl }) => (
-        <div key={id}>
-          <Blog id={id} title={name} description={youtubeUrl} />
-          <Line />
-        </div>
-      ))}
+      {blogs &&
+        blogs.map(({ id, name, youtubeUrl }) => (
+          <div key={id}>
+            <Blog id={id} title={name} description={youtubeUrl} />
+            <Line />
+          </div>
+        ))}
       <div style={{ textAlign: 'center' }}>
         <CustomShowButton />
       </div>
