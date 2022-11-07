@@ -9,10 +9,16 @@ type PostPropsType = {
 export const Post: FC<PostPropsType> = ({ post }) => {
   return (
     <div>
-      <img src="" alt="" />
+      <img
+        src="https://www.inkling.com/wp-content/uploads/2021/06/SD-default-image.png"
+        alt="post"
+      />
       <div>
         <div>
-          <img src="" alt="" />
+          <img
+            src="https://www.inkling.com/wp-content/uploads/2021/06/SD-default-image.png"
+            alt="post"
+          />
           <div>
             <p>{post.title}</p>
             <p>{post.shortDescription}</p>
