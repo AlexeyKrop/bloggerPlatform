@@ -1,8 +1,8 @@
-
-.itemActive {
-    border-right: 2px solid #F8346B;
-}
-
-.itemActive .btn {
-    color: #F8346B;
+.link{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: inherit;
+    text-decoration: none;
+    color: #1A1718
 }

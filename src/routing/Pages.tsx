@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import { CurrentBlog } from '../components/Blog/CurrentBlog/CurrentBlog';
 import { Blogs } from '../pages/Blogs/Blogs';
+import { Posts } from '../pages/Posts/Posts';
 
 export const PATH = {
   BLOGS: '/blogs',
@@ -15,6 +16,7 @@ export const PATH = {
 const ROUTES = [
   { path: PATH.BLOGS, element: <Blogs /> },
   { path: '/', element: <Blogs /> },
+  { path: PATH.POSTS, element: <Posts /> },
   { path: PATH.BLOG, element: <CurrentBlog /> },
 ];
 
