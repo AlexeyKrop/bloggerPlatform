@@ -15,8 +15,15 @@ export const blogsAPI = {
       data,
     );
   },
-  getBlog(id: string) {
-    return instance.get<AxiosResponse<BlogsResponseType[]>>(`blogs/${id}`);
+  getCurrentBlog(id: string) {
+    return instance.get<
+      string,
+      AxiosResponse<{
+        id: string;
+        name: string;
+        youtubeUrl: string;
+      }>
+    >(`bloggers/${id}`);
   },
   updateBlog(id: string, data: ParamsBlogsType) {
     return instance.put<ParamsBlogsType, AxiosResponse<BlogsResponseType[]>>(

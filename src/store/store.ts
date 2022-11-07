@@ -6,7 +6,7 @@ import {
 } from '@reduxjs/toolkit';
 import thunkMiddleware from 'redux-thunk';
 
-import { blogsReducer } from './reducers/bloggsReducer';
+import { blogsReducer } from './reducers/blogsReducer';
 
 const rootReducer = combineReducers({
   blogs: blogsReducer,

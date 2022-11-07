@@ -5,23 +5,27 @@ import { CustomShowButton } from '../../components/CustomButton/CustomButton';
 import { FilterBlock } from '../../components/FilterBlock/FilterBlock';
 import { Line } from '../../components/Line/Line';
 import { useAppDispatch } from '../../hooks/useAppDispatch/useAppDispatch';
-import { setBlogsTC } from '../../store/reducers/bloggsReducer';
+import { useAppSelector } from '../../hooks/useAppSelector/useAppSelector';
+import { setBlogsTC } from '../../store/reducers/blogsReducer';
+import { selectBlogs } from '../../store/selectors/selectBlogs/selectBlogs';
 
 export const Blogs: FC = () => {
   const dispatch = useAppDispatch();
+  const blogs = useAppSelector(selectBlogs);
 
   useEffect(() => {
     dispatch(setBlogsTC());
-  });
+  }, [dispatch]);
 
   return (
     <>
       <FilterBlock />
-      <Blog
-        title="The best blog in our village"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor "
-      />
-      <Line />
+      {blogs.map(({ id, name, youtubeUrl }) => (
+        <div key={id}>
+          <Blog id={id} title={name} description={youtubeUrl} />
+          <Line />
+        </div>
+      ))}
       <div style={{ textAlign: 'center' }}>
         <CustomShowButton />
       </div>
