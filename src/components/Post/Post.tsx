@@ -27,7 +27,6 @@ export const Post: FC<PostPropsType> = ({ post }) => {
             <p className={s.title}>{post.title}</p>
             <p className={s.description}>{post.shortDescription}</p>
             <p className={s.dateTitle}>{new Date(post.addedAt).toLocaleDateString()}</p>
-            <p className={s.contentSubtitle}>{post.content}</p>
           </div>
           <DropDownMenu />
         </div>
