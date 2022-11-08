@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from 'react';
 
+import { CustomShowButton } from '../../components/CustomButton/CustomButton';
 import { Post } from '../../components/Post/Post';
 import { useAppDispatch } from '../../hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector/useAppSelector';
@@ -17,13 +18,18 @@ export const Posts: FC = () => {
   }, [dispatch]);
 
   return (
-    <div className={s.wrapper}>
-      {posts &&
-        posts.map(post => (
-          <div key={post.id}>
-            <Post post={post} />
-          </div>
-        ))}
-    </div>
+    <>
+      <div className={s.wrapper}>
+        {posts &&
+          posts.map(post => (
+            <div key={post.id}>
+              <Post post={post} />
+            </div>
+          ))}
+      </div>
+      <div className={s.btnWrapper}>
+        <CustomShowButton />
+      </div>
+    </>
   );
 };
